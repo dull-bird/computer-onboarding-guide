@@ -20,22 +20,32 @@
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="brand" href="index.html"><img src="logo.png" width="26" height="24" alt="电脑" role="presentation">电脑 <span>入门</span> 指南</a>
-    <nav>
-      <a href="index.html">首页</a>
-      <a href="#w1">前3周</a>
-      <a href="#w2">暑假中段</a>
-      <a href="#w3">暑假末</a>
-      <a href="#w4">读书产出</a>
-      <a href="#rewards">奖励</a>
-      <a href="#mentor">给监督人</a>
-    </nav>
-    <button class="theme-btn" id="themeBtn" aria-label="切换深浅色模式">☀</button>
-  </div>
-</header>
+<div class="shell">
+<aside class="sidebar">
+  <a class="brand" href="index.html"><img src="logo.png" width="24" height="22" alt="电脑" role="presentation">电脑 <span>入门</span> 指南</a>
+  <nav class="sidenav">
+    <div class="sidenav-page">
+      <a href="index.html" class="sidenav-page-link">首页</a>
+    </div>
+    <div class="sidenav-page">
+      <a href="agent.html" class="sidenav-page-link">Agent 教程</a>
+    </div>
+    <div class="sidenav-page">
+      <a href="homework.html" class="sidenav-page-link active">暑假打卡</a>
+      <div class="sidenav-subs">
+        <a href="#w1">前3周</a>
+        <a href="#w2">暑假中段</a>
+        <a href="#w3">暑假末</a>
+        <a href="#w4">读书产出</a>
+        <a href="#rewards">奖励</a>
+        <a href="#mentor">给监督人</a>
+      </div>
+    </div>
+  </nav>
+  <button class="theme-btn" id="themeBtn" aria-label="切换深浅色模式">☀</button>
+</aside>
 
+<main class="content">
 <div class="container">
   <section class="hero">
     <span class="eyebrow">写给自己看的进度条</span>
@@ -112,8 +122,8 @@
       <tbody>
         <tr><td>检查点 1 · 电脑基本功</td><td>一个好看的鼠标</td></tr>
         <tr><td>检查点 2 · 写代码</td><td>一个电脑包</td></tr>
-        <tr><td>检查点 3 · AI 实战 + 展示</td><td>（哥哥自定，比如一顿她想吃的大餐）</td></tr>
-        <tr><td>检查点 4 · 读书产出</td><td>（哥哥自定，比如她一直想要的东西）</td></tr>
+        <tr><td>检查点 3 · AI 实战 + 展示</td><td>待定</td></tr>
+        <tr><td>检查点 4 · 读书产出</td><td>待定</td></tr>
         <tr><td>4 个检查点全部完成</td><td>一次有仪式感的「暑假通关」奖励</td></tr>
       </tbody>
     </table>
@@ -136,6 +146,8 @@
   <footer>
     <p>写给刚上大学的你 · 来自哥哥</p>
   </footer>
+</div>
+</main>
 </div>
 
 <script>

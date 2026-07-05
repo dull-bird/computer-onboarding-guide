@@ -20,25 +20,34 @@
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="brand" href="index.html"><img src="logo.png" width="26" height="24" alt="电脑" role="presentation">电脑 <span>入门</span> 指南</a>
-    <nav>
-      <a href="#why">为什么</a>
-      <a href="#meta">元方法</a>
-      <a href="#roadmap">路线图</a>
-      <a href="#typing">打字</a>
-      <a href="#software">软件</a>
-      <a href="#markdown">Markdown</a>
-      <a href="#bilibili">UP主</a>
-      <a href="#caution">避坑</a>
-      <a href="agent.html">Agent 教程</a>
-      <a href="homework.html">暑假打卡</a>
-    </nav>
-    <button class="theme-btn" id="themeBtn" aria-label="切换深浅色模式">☀</button>
-  </div>
-</header>
+<div class="shell">
+<aside class="sidebar">
+  <a class="brand" href="index.html"><img src="logo.png" width="24" height="22" alt="电脑" role="presentation">电脑 <span>入门</span> 指南</a>
+  <nav class="sidenav">
+    <div class="sidenav-page">
+      <a href="index.html" class="sidenav-page-link active">首页</a>
+      <div class="sidenav-subs">
+        <a href="#why">为什么</a>
+        <a href="#meta">元方法</a>
+        <a href="#roadmap">路线图</a>
+        <a href="#typing">打字</a>
+        <a href="#software">软件</a>
+        <a href="#markdown">Markdown</a>
+        <a href="#bilibili">UP主</a>
+        <a href="#caution">避坑</a>
+      </div>
+    </div>
+    <div class="sidenav-page">
+      <a href="agent.html" class="sidenav-page-link">Agent 教程</a>
+    </div>
+    <div class="sidenav-page">
+      <a href="homework.html" class="sidenav-page-link">暑假打卡</a>
+    </div>
+  </nav>
+  <button class="theme-btn" id="themeBtn" aria-label="切换深浅色模式">☀</button>
+</aside>
 
+<main class="content">
 <div class="container">
   <section class="hero">
     <span class="eyebrow">写给刚拿到新电脑的你</span>
@@ -331,6 +340,8 @@
   <footer>
     <p>写给刚上大学的你 · 来自哥哥</p>
   </footer>
+</div>
+</main>
 </div>
 
 <script>
