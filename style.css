@@ -33,7 +33,7 @@ body{
 h1,h2,h3{font-family:var(--font-serif); color:var(--ink); font-weight:500; line-height:1.25; margin:0}
 p{margin:0}
 a{color:inherit}
-.container{max-width:var(--page-max); padding:0 32px}
+.container{max-width:var(--page-max); margin:0 auto; padding:0 32px}
 .content{flex:1; min-width:0; padding-top:8px}
 
 .shell{display:flex; align-items:flex-start; min-height:100vh}
