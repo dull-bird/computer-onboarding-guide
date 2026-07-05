@@ -85,7 +85,7 @@ section + section{border-top:1px solid var(--line)}
 .card h3{font-size:16px; margin-bottom:6px}
 .card .tag{font-family:var(--font-mono); font-size:11px; color:var(--accent-ink); background:var(--accent-soft); padding:2px 8px; border-radius:var(--radius-pill); display:inline-block; margin-bottom:10px}
 .card p{font-size:14px; color:var(--ink-soft); line-height:1.6}
-.card a.link{font-size:13px; color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px}
+.card a.link{font-size:13px; color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px; display:block; margin-top:12px}
 a.link{color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px; font-weight:500}
 
 .software-group{margin-bottom:26px}
