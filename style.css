@@ -39,7 +39,8 @@ header{position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--p
 .header-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:var(--page-max); margin:0 auto; gap:16px}
 .brand{display:inline-flex; align-items:center; gap:10px; font-family:var(--font-serif); font-size:19px; font-weight:500; color:var(--ink); letter-spacing:.02em; text-decoration:none; flex:none}
 .brand span{color:var(--accent-ink)}
-.brand svg{flex:none; display:block; color:var(--ink)}
+.brand img{flex:none; display:block; width:26px; height:auto}
+[data-theme=dark] .brand img{filter:invert(1) brightness(1.6)}
 nav{display:flex; gap:20px; flex-wrap:wrap}
 nav a{font-size:14px; color:var(--ink-mute); text-decoration:none; transition:color .15s; white-space:nowrap}
 nav a:hover, nav a.active{color:var(--accent-ink)}
@@ -96,6 +97,13 @@ a.link{color:var(--accent-ink); text-decoration:underline; text-underline-offset
 }
 .pill b{color:var(--ink); font-weight:500}
 .pill .desc{display:block; margin-top:4px; color:var(--ink-mute); font-size:13px; line-height:1.5}
+.pill-link{font-family:var(--font-mono); font-size:11px; color:var(--accent-ink); text-decoration:underline; text-underline-offset:2px; margin-left:6px}
+
+.md-table{width:100%; border-collapse:collapse; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden}
+.md-table th, .md-table td{text-align:left; padding:10px 16px; font-size:14px; border-bottom:1px solid var(--line)}
+.md-table th{font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-mute); background:var(--paper-sunken)}
+.md-table td:first-child{font-family:var(--font-mono); font-size:13px; color:var(--accent-ink); white-space:nowrap}
+.md-table tr:last-child td{border-bottom:none}
 
 .callout{
   background:var(--accent-soft); border:1px solid var(--accent-line); border-radius:var(--radius-lg);
