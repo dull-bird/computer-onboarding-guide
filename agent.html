@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent 实战教程 · 从 Kimi Code 到 Claude Code</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('gn-theme');
+      var theme = saved === 'dark' || saved === 'light'
+        ? saved
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html"><svg viewBox="0 0 100 100" width="26" height="26" role="img" aria-label="Windows"><title>Windows</title><g fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"><rect x="8" y="8" width="38" height="38" rx="4"/><rect x="54" y="8" width="38" height="38" rx="4"/><rect x="8" y="54" width="38" height="38" rx="4"/><rect x="54" y="54" width="38" height="38" rx="4"/></g></svg>电脑 <span>入门</span> 指南</a>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="#concept">核心概念</a>
+      <a href="#kimi">上手 Kimi Code</a>
+      <a href="#ccswitch">cc-switch</a>
+      <a href="#generalize">举一反三</a>
+      <a href="#safety">安全提醒</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="切换深浅色模式">☀</button>
+  </div>
+</header>
+
+<div class="container">
+  <section class="hero">
+    <span class="eyebrow">授人以渔</span>
+    <h1>从 Kimi Code 到 Claude Code：学会一次，到处能用</h1>
+    <p>你电脑上已经装好的 Kimi Code，其实和 Claude Code 是同一个程序，只是换了一个"大脑"。搞懂这一点，你就能看懂几乎所有 AI Agent 工具的原理，以后遇到新工具也能很快上手。</p>
+  </section>
+
+  <section id="concept">
+    <div class="section-head">
+      <span class="eyebrow">CONCEPT</span>
+      <h2>先搞懂一个关键概念</h2>
+      <p class="lead">一个是"壳"，一个是"大脑"。壳负责跟你对话、读写文件、执行命令；大脑负责思考该做什么。壳可以插上不同的大脑。</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">壳 · 不变的部分</span>
+        <h3>Claude Code 这个程序本身</h3>
+        <p>能在终端里对话、能读你的代码、能帮你写文件、能执行命令，还会在做有风险的操作前问你「要不要继续」。这一整套能力，就是「壳」。</p>
+      </div>
+      <div class="card">
+        <span class="tag">大脑 · 可以换</span>
+        <h3>Kimi 还是 Claude，只是配置不同</h3>
+        <p>「Kimi Code」= Claude Code 这个壳 + 把请求发给月之暗面的 Kimi 模型。「Claude Code」= 同一个壳 + 把请求发给 Anthropic 官方的 Claude 模型。命令、用法完全一样。</p>
+      </div>
+    </div>
+    <div class="stage" style="margin-top:16px">
+      <div class="stage-num">!</div>
+      <div>
+        <h3>怎么换大脑</h3>
+        <p>秘密就在两个设置项：<code>ANTHROPIC_BASE_URL</code>（请求发到哪个网址）和 <code>ANTHROPIC_AUTH_TOKEN</code>（用哪个账号的钥匙）。手动改配置文件比较麻烦，所以有了 <b>cc-switch</b> 这个小工具，专门用来一键切换这两项设置。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kimi">
+    <div class="section-head">
+      <span class="eyebrow">GETTING STARTED</span>
+      <h2>上手 Kimi Code：打好地基</h2>
+    </div>
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <div>
+          <h3>打开终端</h3>
+          <p>按 <kbd>Win</kbd> 键，输入「终端」或「Windows Terminal」回车打开。这是一个只能打字、没有鼠标图标的窗口——先别害怕，AI Agent 的世界大部分工作都在这里发生。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <div>
+          <h3>进入一个文件夹</h3>
+          <p>比如桌面新建一个 <code>test</code> 文件夹，然后在终端里输入：</p>
+          <div class="code-block">cd Desktop\test</div>
+          <p>这一步是在告诉 Kimi Code：「你接下来要读写的文件都在这个文件夹里」，这也是终端最核心的概念——<b>当前所在的位置</b>。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">3</div>
+        <div>
+          <h3>启动它</h3>
+          <p>输入命令并回车：</p>
+          <div class="code-block">claude</div>
+          <p>没错，即使是 Kimi Code，启动命令也是 <code>claude</code>——因为它本质上就是 Claude Code 这个程序，只是背后连的是 Kimi。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">4</div>
+        <div>
+          <h3>理解它的工作循环</h3>
+          <p>你提需求 → 它读文件/写文件/执行命令 → 遇到有风险的操作会先问你「是否允许」→ 你确认 → 它继续，直到完成。这个「提需求 → 行动 → 确认 → 继续」的循环，就是所有 Agent 工具的通用模式。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">5</div>
+        <div>
+          <h3>三个练手小任务</h3>
+          <ol>
+            <li>让它「解释一下这个文件夹里有什么」——熟悉它怎么读取信息</li>
+            <li>让它「写一个打印 Hello World 的 Python 脚本，并运行它」——体验完整的写代码+执行流程</li>
+            <li>让它「帮我把这些文件按类型整理到子文件夹」——体验真实的自动化小任务</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ccswitch">
+    <div class="section-head">
+      <span class="eyebrow">CC-SWITCH</span>
+      <h2>cc-switch：一键切换"大脑"</h2>
+      <p class="lead">一个专门管理 AI Agent 配置的小工具，Windows / Mac / Linux 都有，图形界面，不用手改配置文件。</p>
+    </div>
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <div>
+          <h3>下载安装</h3>
+          <p>打开 <a class="link" href="https://github.com/farion1231/cc-switch/releases" target="_blank" rel="noopener">github.com/farion1231/cc-switch/releases</a>，下载最新版本的 <code>.msi</code> 安装包（或免安装的 zip 版本），双击安装。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <div>
+          <h3>添加 Kimi 配置</h3>
+          <p>打开 CC Switch，新建一个供应商，选择 Kimi 预设（或手动填写），把已有的 Kimi API Key 填进去保存。这一步只是把你已经在用的 Kimi Code 配置「登记」进这个管理工具，方便以后一键切换。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">3</div>
+        <div>
+          <h3>一键切换</h3>
+          <p>以后如果哥哥给你开通了 Claude 官方账号，或者想试试 DeepSeek、GLM 这些其它模型，直接在 CC Switch 里点一下对应的供应商，或者用系统托盘图标切换，Claude Code 支持不用重启终端就立刻生效。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="generalize">
+    <div class="section-head">
+      <span class="eyebrow">GENERALIZE</span>
+      <h2>举一反三：这套思路能用在哪</h2>
+      <p class="lead">以后遇到任何一个新的 AI Agent 工具，都可以先问自己这三个问题。</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>它的「壳」能做什么？</h3>
+        <p>能读写文件吗？能执行命令吗？能上网搜索吗？——这决定了它能替你完成哪些实际任务。</p>
+      </div>
+      <div class="card">
+        <h3>它的「大脑」是谁？</h3>
+        <p>背后连的是哪家的模型？是否可以更换？——同样的壳换一个更强的大脑，能力可能完全不同。</p>
+      </div>
+      <div class="card">
+        <h3>它的循环是什么？</h3>
+        <p>提需求 → 行动 → 确认 → 继续，几乎是所有 Agent 工具共同的模式，包括 OpenAI 的 Codex CLI、Google 的 Gemini CLI。认准这个模式，换个工具也能很快上手。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety">
+    <div class="section-head">
+      <span class="eyebrow">SAFETY</span>
+      <h2>安全提醒，比熟练更重要</h2>
+    </div>
+    <div class="callout warn">
+      <h3>这几条一定要记住</h3>
+      <ul>
+        <li>API Key 就是账号密码，绝对不要截图发群里、发朋友圈，或者粘贴到不认识的网站</li>
+        <li>Agent 请求执行某个命令时，先读一遍它要做什么，看不懂就问它「这条命令具体会做什么」，别看到确认框就一路按回车</li>
+        <li>看到「删除」「格式化」「强制覆盖」这类字眼，一定要先停下来，不确定就找哥哥确认</li>
+        <li>保持怀疑：AI 说的不一定对，尤其是它说「我已经测试过了」「肯定没问题」的时候，越要自己动手验证一下</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>写给刚上大学的你 · 来自哥哥</p>
+  </footer>
+</div>
+
+<script>
+  var btn = document.getElementById('themeBtn');
+  function syncBtn(){
+    var t = document.documentElement.getAttribute('data-theme');
+    btn.textContent = t === 'dark' ? '☾' : '☀';
+  }
+  syncBtn();
+  btn.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('gn-theme', next); } catch (e) {}
+    syncBtn();
+  });
+</script>
+
+</body>
+</html>

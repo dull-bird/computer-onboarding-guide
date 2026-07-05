@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>给你的电脑入门指南 · 从打字到 AI Agent</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('gn-theme');
+      var theme = saved === 'dark' || saved === 'light'
+        ? saved
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html"><svg viewBox="0 0 100 100" width="26" height="26" role="img" aria-label="Windows"><title>Windows</title><g fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"><rect x="8" y="8" width="38" height="38" rx="4"/><rect x="54" y="8" width="38" height="38" rx="4"/><rect x="8" y="54" width="38" height="38" rx="4"/><rect x="54" y="54" width="38" height="38" rx="4"/></g></svg>电脑 <span>入门</span> 指南</a>
+    <nav>
+      <a href="#roadmap">路线图</a>
+      <a href="#typing">打字</a>
+      <a href="#software">软件</a>
+      <a href="#bilibili">UP主</a>
+      <a href="#caution">避坑</a>
+      <a href="agent.html">Agent 教程</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="切换深浅色模式">☀</button>
+  </div>
+</header>
+
+<div class="container">
+  <section class="hero">
+    <span class="eyebrow">写给刚拿到新电脑的你</span>
+    <h1>从不会打字，到看懂 AI Agent</h1>
+    <p>这台电脑是你的新起点。这份指南按时间顺序排好了顺序：先学会用电脑，再理解电脑是什么，再动手写代码，最后弄懂现在很火的 AI 到底在干什么。不用着急，一步一步来就好。</p>
+  </section>
+
+  <section id="roadmap">
+    <div class="section-head">
+      <span class="eyebrow">ROADMAP</span>
+      <h2>五个阶段的学习路线</h2>
+    </div>
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <div>
+          <span class="stage-when">第 1 周</span>
+          <h3>先学会「操作」电脑</h3>
+          <p>打字指法、文件夹与路径概念、Win11 常用快捷键、输入法与截图。每天 20-30 分钟练打字，不用赶进度，肌肉记忆最重要。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <div>
+          <span class="stage-when">第 2-3 周</span>
+          <h3>搭好工具环境</h3>
+          <p>装好浏览器、效率工具、密码管理器和笔记软件，养成「用工具而不是硬扛」的习惯。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">3</div>
+        <div>
+          <span class="stage-when">第 1 个月</span>
+          <h3>理解计算机是什么</h3>
+          <p>CPU / 内存 / 硬盘的关系、操作系统在做什么、二进制与文件本质、网络基础。推荐哈佛 CS50 中文字幕版。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">4</div>
+        <div>
+          <span class="stage-when">第 2 个月</span>
+          <h3>编程真正入门</h3>
+          <p>从 Python 零基础学起：变量、循环、函数、列表。做几个小项目：算术小游戏、词频统计、命令行小工具。</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">5</div>
+        <div>
+          <span class="stage-when">长期坚持</span>
+          <h3>理解 AI 与 Agent</h3>
+          <p>用可视化建立数学直觉，理解大模型原理，再动手用 Kimi Code 做真实小任务——整理文件、写小脚本、自动化重复劳动。想直接上手？看 <a class="link" href="agent.html">Agent 实战教程</a>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="typing">
+    <div class="section-head">
+      <span class="eyebrow">TYPING</span>
+      <h2>打字指法练习</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">中文 + 英文</span>
+        <h3>金山打字通</h3>
+        <p>最经典的中文打字教程网站，拼音、五笔、英文都能练，界面对新手友好。先用它把键位、指法过一遍。</p>
+      </div>
+      <div class="card">
+        <span class="tag">纯英文</span>
+        <h3>keybr.com</h3>
+        <p>英文盲打，难度会自动适应你的水平。练熟后打代码里的英文变量名会顺手很多。</p>
+      </div>
+      <div class="card">
+        <span class="tag">游戏化</span>
+        <h3>typing.com</h3>
+        <p>游戏化程度更高，适合练久了觉得枯燥的时候换换口味。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="software">
+    <div class="section-head">
+      <span class="eyebrow">SOFTWARE</span>
+      <h2>Windows 装机软件清单</h2>
+    </div>
+
+    <div class="software-group">
+      <h3>效率工具</h3>
+      <div class="pill-list">
+        <div class="pill"><b>PowerToys</b><span class="desc">微软官方效率工具箱：窗口分屏、批量重命名、快速启动，一个顶好几个杂牌软件</span></div>
+        <div class="pill"><b>7-Zip</b><span class="desc">解压缩，干净不带广告</span></div>
+        <div class="pill"><b>Win + V</b><span class="desc">系统自带剪贴板历史，够用了先不用装 CopyQ</span></div>
+        <div class="pill"><b>Win + Shift + S</b><span class="desc">系统自带截图，需要长截图/标注再考虑 ShareX</span></div>
+      </div>
+    </div>
+
+    <div class="software-group">
+      <h3>账号与笔记</h3>
+      <div class="pill-list">
+        <div class="pill"><b>Bitwarden</b><span class="desc">免费开源密码管理器，越早养成一人一密码的习惯越好</span></div>
+        <div class="pill"><b>OneNote</b><span class="desc">系统自带，零学习成本，先用它记笔记</span></div>
+      </div>
+    </div>
+
+    <div class="software-group">
+      <h3>浏览器 · Chrome 插件</h3>
+      <div class="pill-list">
+        <div class="pill"><b>uBlock Origin</b><span class="desc">广告拦截，网页干净很多</span></div>
+        <div class="pill"><b>沉浸式翻译</b><span class="desc">中英对照翻译，看英文技术文档时很有用</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bilibili">
+    <div class="section-head">
+      <span class="eyebrow">BILIBILI</span>
+      <h2>值得关注的 UP 主</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>小甲鱼</h3>
+        <p>「零基础入门学习 Python」系列，讲得极其细致耐心，专为零基础设计，国内最经典的 Python 入门教程之一。</p>
+      </div>
+      <div class="card">
+        <h3>CS50 中文字幕版</h3>
+        <p>B 站搜「CS50 中文」。哈佛最经典的计算机科学导论课，从二进制讲到网页，节奏适合完全新手。</p>
+      </div>
+      <div class="card">
+        <h3>3Blue1Brown 中文精译版</h3>
+        <p>数学可视化神作，「线性代数的本质」「神经网络」系列能建立起对 AI 底层数学的直觉。</p>
+      </div>
+      <div class="card">
+        <h3>李沐</h3>
+        <p>「跟李沐学AI」，讲深度学习、带读论文，眼界很好，可以先收藏，编程基础打好一点再系统看。</p>
+      </div>
+      <div class="card">
+        <h3>何同学</h3>
+        <p>科技测评头部 UP，视频制作水准高，用来培养对科技产品的兴趣和审美。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="caution">
+    <div class="section-head">
+      <span class="eyebrow">CAUTION</span>
+      <h2>新手要避开的坑</h2>
+    </div>
+    <div class="callout">
+      <h3>装软件时多留一个心眼</h3>
+      <ul>
+        <li>不要装「电脑管家」「驱动精灵」「XX急速下载器」这类国产全家桶和第三方下载站，容易夹带流氓软件</li>
+        <li>Windows 11 自带的 Defender 杀毒够用，不需要额外装杀毒软件</li>
+        <li>安装向导里的「附加安装」「推荐软件」默认要取消勾选，这是最容易中招的地方</li>
+        <li>尽量从官网或微软商店下载软件，不要在搜索引擎的广告链接里下载</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>写给刚上大学的你 · 来自哥哥</p>
+  </footer>
+</div>
+
+<script>
+  var btn = document.getElementById('themeBtn');
+  function syncBtn(){
+    var t = document.documentElement.getAttribute('data-theme');
+    btn.textContent = t === 'dark' ? '☾' : '☀';
+  }
+  syncBtn();
+  btn.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('gn-theme', next); } catch (e) {}
+    syncBtn();
+  });
+</script>
+
+</body>
+</html>
